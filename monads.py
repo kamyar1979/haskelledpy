@@ -4,7 +4,7 @@ T = TypeVar("T")
 U = TypeVar("U")
 
 
-class Just(Generic[T]):
+class Just[T]:
     __match_args__ = ("_val",)
 
     def __init__(self, val: T):
@@ -24,18 +24,18 @@ Nothing = Just[None]
 Maybe = Nothing | Just[T]
 
 
-class Left(Generic[T]):
+class Left[T]:
     __match_args__ = ("_val",)
 
     def __init__(self, val):
         self._val = val
 
 
-class Right(Generic[T]):
+class Right[T]:
     __match_args__ = ("_val",)
 
     def __init__(self, val):
         self._val = val
 
 
-Either = Left[T] | Right[U]
+type Either[T, U] = Left[T] | Right[U]

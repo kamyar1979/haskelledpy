@@ -2,12 +2,11 @@ import unittest
 
 from monads import *
 
-val_nothing: Maybe = Nothing
-val_int: Maybe = Just(456)
-val_str: Maybe = Just("test")
-val_left = Left(12345)
-val_right = Right("Some error!")
-
+val_nothing: Maybe[int] = Nothing
+val_int: Maybe[int] = Just(456)
+val_str: Maybe[str] = Just("test")
+val_left: Either[int, str] = Left(12345)
+val_right: Either[int, str] = Right("Some error!")
 
 class MyTestCase(unittest.TestCase):
     def test_maybe_just_int(self):
@@ -48,3 +47,4 @@ class MyTestCase(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
